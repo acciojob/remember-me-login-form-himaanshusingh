@@ -1,26 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <form>
-      <h1>Login Form</h1>
-      <div class="username-block">
-        <label for="username">Username:</label>
-        <input type="text" placeholder="Username" id="username" />
-      </div>
-      <div class="password-block">
-        <label for="password">Password:</label>
-        <input type="password" placeholder="Password" id="password" />
-      </div>
-      <div class="remember-me">
-        <label for="checkbox">Remember me:</label>
-        <input type="checkbox" id="checkbox" />
-      </div>
-      <input class="btn" type="submit" id="submit" value="Submit" />
-      <button class="btn" id="existing" style="display: none;">Login as existing user</button>
+    <form method="POST">
+	  <h1>Login Form</h1>
+      <fieldset>
+        <div class="name-div">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Username" />
+        </div>
+        <div class="password-div">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Password" />
+        </div>
+        <div class="remember-me-div">
+          <label for="checkbox">Remember me.</label>
+          <input type="checkbox" id="checkbox" />
+        </div>
+        <input type="submit" id="submit" value="Submit" />
+        <button id="existing" class="hidden">Login as existing user</button>
+      </fieldset>
     </form>
-    <script type="text/javascript" src="./script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

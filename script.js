@@ -1,28 +1,23 @@
-//your JS code here. If required.
-const submit = document.querySelector("#submit");
-const checkbox = document.querySelector("#checkbox");
-const usernameInput = document.querySelector("#username");
-const passwordInput = document.querySelector("#password");
+const name = document.getElementById("username");
+const password = document.getElementById("password");
+const checkbox = document.getElementById("checkbox");
+const submitBtn = document.getElementById("submit");
+const existingBtn = document.getElementById("existing");
 
-// FIX: The checkbox logic is now independent and works correctly.
-submit.addEventListener("click", (e) => {
-  e.preventDefault();
-  const username = usernameInput.value;
-  const password = passwordInput.value;
-
+submitBtn.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  alert(`Logged in as ${name.value}`);
+  const userData = { name: name.value, password: password.value };
   if (checkbox.checked) {
-    localStorage.setItem("username", username);
-    localStorage.setItem("password", password);
-    console.log("Credentials saved.");
+    localStorage.setItem("user", JSON.stringify(userData));
+    existingBtn.classList.remove("hidden");
   } else {
-    localStorage.removeItem("username");
-    localStorage.removeItem("password");
-    console.log("Credentials not saved.");
+    localStorage.clear();
+    existingBtn.classList.add("hidden");
   }
-  alert(`Logged in as ${username}`);
 });
 
-const existing = document.getElementById("existing");
-existing.addEventListener("click", function () {
-  alert(`Logged in as ${localStorage.getItem("username")}`);
+existingBtn.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  alert(`Logged in as ${name.value}`);
 });
